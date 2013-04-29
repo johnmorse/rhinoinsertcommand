@@ -1,0 +1,17 @@
+//
+//  Release.xcconfig
+//  MacRhino
+//
+//  Created by Marlin Prowell on 10/9/09.
+//  Copyright 2009 Robert McNeel & Associates. All rights reserved.
+//
+
+// Settings for Release builds
+
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) $(RHINO_PLATFORM) RHINO_APPLE=1 _GNU_SOURCE MY_ZCALLOC Z_PREFIX NDEBUG=1
+GCC_OPTIMIZATION_LEVEL = s
+ONLY_ACTIVE_ARCH = NO
+STRIP_STYLE=non-global
+STRIP_INSTALLED_PRODUCT = YES
+DEPLOYMENT_POSTPROCESSING = YES

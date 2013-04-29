@@ -1,0 +1,28 @@
+//
+//  Base.xcconfig
+//  MacRhino
+//
+//  Created by Marlin Prowell on 10/9/09.
+//  Copyright 2009 Robert McNeel & Associates. All rights reserved.
+//
+
+// Settings common to all builds
+
+// Do not set SDKROOT here
+
+// Warn when return value is missing
+GCC_WARN_ABOUT_RETURN_TYPE = YES
+
+// eliminates many "&& within ||" warnings
+GCC_WARN_MISSING_PARENTHESES = NO
+
+// eliminates many "enumeration values not handled" warnings
+GCC_WARN_CHECK_SWITCH_STATEMENTS = NO
+
+// -fno-operator-names is supposed to prevent 'or' from being a reserved word, but Clang currently ignores the setting
+// -Wno-tautological-compare eliminates many warnings like "comparison of unsigned expression < 0 is always false"
+OTHER_CFLAGS = $(inherited) -fno-operator-names -Wno-tautological-compare
+
+HEADER_SEARCH_PATHS = $(inherited) /usr/include/malloc
+
+GCC_PRECOMPILE_PREFIX_HEADER = YES

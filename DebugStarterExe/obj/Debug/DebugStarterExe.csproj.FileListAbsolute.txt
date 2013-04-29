@@ -1,0 +1,5 @@
+C:\Dev\github\johnm\rhinoinsertcommand\DebugStarterExe\bin\Debug\DebugStarterExe.exe
+C:\Dev\github\johnm\rhinoinsertcommand\DebugStarterExe\bin\Debug\DebugStarterExe.pdb
+C:\Dev\github\johnm\rhinoinsertcommand\DebugStarterExe\obj\Debug\DebugStarterExe.csprojResolveAssemblyReference.cache
+C:\Dev\github\johnm\rhinoinsertcommand\DebugStarterExe\obj\Debug\DebugStarterExe.exe
+C:\Dev\github\johnm\rhinoinsertcommand\DebugStarterExe\obj\Debug\DebugStarterExe.pdb

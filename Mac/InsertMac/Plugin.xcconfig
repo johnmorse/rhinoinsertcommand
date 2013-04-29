@@ -1,0 +1,21 @@
+//
+//  Plugin.xcconfig
+//  MacRhino
+//
+//  Created by Marlin Prowell on 10/9/09.
+//  Copyright 2009 Robert McNeel & Associates. All rights reserved.
+//
+
+// Settings common to Plug-Ins builds
+
+WRAPPER_EXTENSION = rhp
+BUNDLE_LOADER = $(CONFIGURATION_BUILD_DIR)/Rhinoceros.app/Contents/MacOS/Rhinoceros
+SKIP_INSTALL = YES
+GCC_PREFIX_HEADER = $(PROJECT_DIR)/$(PRODUCT_NAME)_Prefix.pch
+
+// Compile everything as Objective-C++.
+// This allows Objective C code to be inserted anywhere in Rhino.
+GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp
+
+// Define the OpenDesign directory to use in src4/rhino4/Plug-Ins/OpenDesign
+OPENDESIGN_VERSION = 3.07.00_Production

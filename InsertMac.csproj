@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{31AB5DE5-6355-47DC-BC9C-8BDC718BE7F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>InsertMac</RootNamespace>
+    <AssemblyName>InsertMac</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\..\..\..\Library\Application Support\McNeel\Rhinoceros\MacPlugIns\InsertMac\InsertMac.rhp\Contents\Mono</OutputPath>
+    <DefineConstants>DEBUG;ON_OS_MAC</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="python monobuild.py ${TargetFile}" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>..\..\..\..\Library\Application Support\McNeel\Rhinoceros\MacPlugIns\InsertMac\InsertMac.rhp\Contents\Mono</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <DefineConstants>ON_OS_MAC</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="MonoMac">
+      <HintPath>..\..\..\..\Library\Developer\Xcode\DerivedData\MacRhino-fxswjfvtztmahtbrorxgsjkmlveu\Build\Products\Debug\Rhinoceros.app\Contents\Resources\MonoMac.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RhinoCommon">
+      <HintPath>..\..\..\..\Library\Developer\Xcode\DerivedData\MacRhino-fxswjfvtztmahtbrorxgsjkmlveu\Build\Products\Debug\Rhinoceros.app\Contents\Resources\RhinoCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RhinoMac">
+      <HintPath>..\..\..\..\Library\Developer\Xcode\DerivedData\MacRhino-fxswjfvtztmahtbrorxgsjkmlveu\Build\Products\Debug\Rhinoceros.app\Contents\Resources\RhinoMac.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\InsertCommandViewModel.cs" />
+    <Compile Include="Commands\InsertCommand.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="InsertPlugIn.cs" />
+    <Compile Include="ViewModels\BlockPropertiesViewModel.cs" />
+    <Compile Include="ViewModels\InsertInstanceCommandOptions.cs" />
+    <Compile Include="ViewModels\InsertInstanceOptions.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="monobuild.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Commands\" />
+  </ItemGroup>
+</Project>

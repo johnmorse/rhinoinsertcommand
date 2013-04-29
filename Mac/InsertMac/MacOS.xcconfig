@@ -1,0 +1,41 @@
+//
+//  MacOS.xcconfig
+//  MacRhino
+//
+//  Created by Marlin Prowell on 10/9/09.
+//  Copyright 2009 Robert McNeel & Associates. All rights reserved.
+//
+
+// Settings common to all MacOS builds
+
+SDKROOT = macosx
+MACOSX_DEPLOYMENT_TARGET = 10.7
+
+// Enable/Disable Automatic Reference Counting
+CLANG_ENABLE_OBJC_ARC = YES
+
+// Use Clang's libc++ with the C11 std library
+CLANG_CXX_LIBRARY = libc++
+
+ARCHS = $(ARCHS_STANDARD_64_BIT)
+
+// Use Apple Clang 3.0 in Xcode 4.2
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+
+// OpenMP crashes on 10.7
+// Specifically, ON_MeshEx::ComputeEdges crashes in Technical Display mode on 10.7
+ENABLE_OPENMP_SUPPORT = NO
+
+// Turn this off.  Combining HiDPI images changes .png files into .tiff files
+COMBINE_HIDPI_IMAGES = NO
+
+// The following two warnings are turned off because 
+// they generate too many warnings in the Rhino core code
+GCC_WARN_UNUSED_VARIABLE = NO
+GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO
+
+GCC_SYMBOLS_PRIVATE_EXTERN = NO
+KEEP_PRIVATE_EXTERNS = NO
+GCC_INLINES_ARE_PRIVATE_EXTERN = YES
+
+RHINO_PLATFORM = RHINO_MACOS=1
